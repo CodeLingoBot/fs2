@@ -320,7 +320,7 @@ func (self *BlockFile) ctrl(do func(*ctrlblk) error) error {
 	})
 }
 
-// Get the "control data" this free form data which is stored in the
+// ControlData gets the "control data" this free form data which is stored in the
 // control block file. You can put whatever you want in here.
 func (self *BlockFile) ControlData() (data []byte, err error) {
 	err = self.ctrl(func(ctrl *ctrlblk) error {
@@ -500,7 +500,7 @@ func (self *BlockFile) Address() uintptr {
 	return uintptr(self.mmap)
 }
 
-// Is the address given still the address of the memory map?
+// Valid Is the address given still the address of the memory map?
 func (self *BlockFile) Valid(address uintptr) bool {
 	return address == uintptr(self.mmap)
 }
